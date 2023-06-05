@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     private Transform target;
     [SerializeField]
     private float nextWaypointDistance = 3.0f;
+    [SerializeField]
+    private float stopDistanceFromTarget = 0.5f;
 
     [Header("Movement")]
     [SerializeField]
@@ -15,7 +17,6 @@ public class Enemy : MonoBehaviour
 
     private Path path;
     private int currentWaypoint = 0;
-    private bool reachedEndOfPath = false;
 
     private Vector2 velocity;
 
@@ -49,17 +50,13 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (path == null)
+        if (path == null || currentWaypoint >= path.vectorPath.Count)
             return;
 
-        if (currentWaypoint >= path.vectorPath.Count)
-        {
-            reachedEndOfPath = true;
-            return;
-        }
-
-        reachedEndOfPath = false;
-        velocity = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        if (Vector2.Distance(transform.position, target.position) <= stopDistanceFromTarget)
+            velocity = Vector2.zero;
+        else
+            velocity = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)

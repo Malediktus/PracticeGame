@@ -5,7 +5,6 @@ public class Player : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField]
-    [Range(0.0f, 10.0f)]
     private float speed = 5.0f;
 
     private Rigidbody2D rb;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class Player : GameEntity
 {
     [Header("Movement")]
     [SerializeField]
@@ -23,5 +23,10 @@ public class Player : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         velocity = context.ReadValue<Vector2>();
+    }
+
+    public void OnDeath()
+    {
+        Debug.Log("Player died");
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Pathfinding;
 
-public class Enemy : MonoBehaviour
+public class Enemy : GameEntity
 {
     [Header("AI")]
     [SerializeField]
@@ -66,5 +66,10 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = velocity * speed;
+    }
+
+    public void OnDeath()
+    {
+        Destroy(gameObject);
     }
 }

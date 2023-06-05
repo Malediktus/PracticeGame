@@ -740,6 +740,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b89aebccf800040c6bb931e8ebd18e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 50
+  onDeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 700845582}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   speed: 5
 --- !u!50 &700845583
 Rigidbody2D:
@@ -1439,6 +1455,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b06efef9c944e26958b7580d43e4e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 50
+  onDeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1760648068}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   target: {fileID: 700845581}
   nextWaypointDistance: 1
   stopDistanceFromTarget: 3

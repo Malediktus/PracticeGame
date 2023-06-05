@@ -5,7 +5,7 @@ public class GameEntity : MonoBehaviour
 {
     [Header("GameEntity")]
     [SerializeField]
-    private float maxHealth = 50.0f;
+    protected float maxHealth = 50.0f;
     [SerializeField]
     private UnityEvent onDeathEvent;
     [SerializeField]
@@ -13,7 +13,7 @@ public class GameEntity : MonoBehaviour
     [SerializeField]
     private UnityEvent<float> onHealEvent;
 
-    private float health;
+    protected float health;
 
     public GameEntity()
     {

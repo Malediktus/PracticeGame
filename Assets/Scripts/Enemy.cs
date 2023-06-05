@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Pathfinding;
 
 public class Enemy : GameEntity
@@ -22,11 +23,15 @@ public class Enemy : GameEntity
 
     private Seeker seeker;
     private Rigidbody2D rb;
+    private Slider healthBar;
 
     private void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        healthBar = GetComponentInChildren<Slider>();
+        healthBar.maxValue = maxHealth;
+        healthBar.value = health;
 
         InvokeRepeating("UpdatePath", 0.0f, 0.5f);
     }
@@ -71,5 +76,15 @@ public class Enemy : GameEntity
     public void OnDeath()
     {
         Destroy(gameObject);
+    }
+
+    public void OnDamage(float amount)
+    {
+        healthBar.value = health;
+    }
+
+    public void OnHeal(float amount)
+    {
+        healthBar.value = health;
     }
 }

@@ -8,6 +8,10 @@ public class GameEntity : MonoBehaviour
     private float maxHealth = 50.0f;
     [SerializeField]
     private UnityEvent onDeathEvent;
+    [SerializeField]
+    private UnityEvent<float> onDamageEvent;
+    [SerializeField]
+    private UnityEvent<float> onHealEvent;
 
     private float health;
 
@@ -19,6 +23,7 @@ public class GameEntity : MonoBehaviour
     public void Damage(float amount)
     {
         health -= amount;
+        onDamageEvent.Invoke(amount);
         if (health <= 0)
             onDeathEvent.Invoke();
     }
@@ -26,6 +31,7 @@ public class GameEntity : MonoBehaviour
     public void Heal(float amount)
     {
         health += amount;
+        onHealEvent.Invoke(amount);
         if (health > maxHealth)
             health = maxHealth;
     }

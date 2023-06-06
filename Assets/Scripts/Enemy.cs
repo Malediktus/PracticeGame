@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Pathfinding;
 
-public class Enemy : GameEntity
+public class Enemy : MonoBehaviour
 {
     [Header("AI")]
     [SerializeField]
@@ -24,14 +24,16 @@ public class Enemy : GameEntity
     private Seeker seeker;
     private Rigidbody2D rb;
     private Slider healthBar;
+    private Health health;
 
     private void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        health = GetComponent<Health>();
         healthBar = GetComponentInChildren<Slider>();
-        healthBar.maxValue = maxHealth;
-        healthBar.value = health;
+        healthBar.maxValue = health.GetMaxHealth();
+        healthBar.value = health.GetHealth();
 
         InvokeRepeating("UpdatePath", 0.0f, 0.5f);
     }
@@ -80,11 +82,11 @@ public class Enemy : GameEntity
 
     public void OnDamage(float amount)
     {
-        healthBar.value = health;
+        healthBar.value = health.GetHealth();
     }
 
     public void OnHeal(float amount)
     {
-        healthBar.value = health;
+        healthBar.value = health.GetHealth();
     }
 }

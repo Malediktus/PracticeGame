@@ -977,6 +977,7 @@ GameObject:
   - component: {fileID: 700845584}
   - component: {fileID: 700845583}
   - component: {fileID: 700845582}
+  - component: {fileID: 700845586}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1064,52 +1065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b89aebccf800040c6bb931e8ebd18e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  onDeathEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 700845582}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnDeath
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onDamageEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 700845582}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnDamage
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onHealEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 700845582}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnHeal
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   speed: 5
 --- !u!50 &700845583
 Rigidbody2D:
@@ -1277,6 +1232,64 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &700845586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700845579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45c8405ff7a4497881251eeb46c0dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  onDeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 700845582}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDamageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 700845582}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnDamage
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHealEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 700845582}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnHeal
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &709148588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,6 +1968,7 @@ GameObject:
   - component: {fileID: 1760648062}
   - component: {fileID: 1760648067}
   - component: {fileID: 1760648068}
+  - component: {fileID: 1760648069}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2142,6 +2156,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b06efef9c944e26958b7580d43e4e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 700845581}
+  nextWaypointDistance: 1
+  stopDistanceFromTarget: 3
+  speed: 3
+--- !u!114 &1760648069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760648061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45c8405ff7a4497881251eeb46c0dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   maxHealth: 50
   onDeathEvent:
     m_PersistentCalls:
@@ -2188,10 +2218,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  target: {fileID: 700845581}
-  nextWaypointDistance: 1
-  stopDistanceFromTarget: 3
-  speed: 3
 --- !u!1 &1783612920
 GameObject:
   m_ObjectHideFlags: 0

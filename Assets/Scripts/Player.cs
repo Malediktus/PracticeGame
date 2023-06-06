@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
-public class Player : GameEntity
+public class Player : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField]
@@ -10,15 +10,17 @@ public class Player : GameEntity
 
     private Rigidbody2D rb;
     private Slider healthBar;
+    private Health health;
 
     private Vector2 velocity;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        health = GetComponent<Health>();
         healthBar = GetComponentInChildren<Slider>();
-        healthBar.maxValue = maxHealth;
-        healthBar.value = health;
+        healthBar.maxValue = health.GetMaxHealth();
+        healthBar.value = health.GetHealth();
     }
 
     private void FixedUpdate()
@@ -38,11 +40,11 @@ public class Player : GameEntity
 
     public void OnDamage(float amount)
     {
-        healthBar.value = health;
+        healthBar.value = health.GetHealth();
     }
 
     public void OnHeal(float amount)
     {
-        healthBar.value = health;
+        healthBar.value = health.GetHealth();
     }
 }

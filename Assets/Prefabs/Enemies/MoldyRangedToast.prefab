@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1782062873528050114}
   - component: {fileID: 5297171382650552442}
   - component: {fileID: 9027051956767650201}
+  - component: {fileID: 8329908972196460867}
   m_Layer: 6
   m_Name: MoldyRangedToast
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 2243538096761039594}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &881522610551191386
 SpriteRenderer:
@@ -201,6 +202,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3abae350b2dd347a65bf5f18e985fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  nextWaypointDistance: 3
+  stopDistanceFromTarget: 13
+  speed: 5
+  MinimumDistanceToAttack: 13
+  Attack_speed: 4
+  Attack_Damage: 5
+  Projectile_velocity: 10
+  Projectile: {fileID: 6582437299804821108, guid: a7fa9857cd6940b4fa0afa43492171d4, type: 3}
+--- !u!114 &8329908972196460867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026649707203880865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45c8405ff7a4497881251eeb46c0dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   maxHealth: 30
   onDeathEvent:
     m_PersistentCalls:
@@ -247,15 +269,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  target: {fileID: 0}
-  nextWaypointDistance: 3
-  stopDistanceFromTarget: 13
-  speed: 5
-  MinimumDistanceToAttack: 13
-  Attack_speed: 4
-  Attack_Damage: 5
-  Projectile_velocity: 10
-  Projectile: {fileID: 6582437299804821108, guid: a7fa9857cd6940b4fa0afa43492171d4, type: 3}
 --- !u!1 &3051913019758217064
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,13 +9,13 @@ public class MoldyMeleeToast : Enemy
     [SerializeField] float Attack_speed;
     [SerializeField] float Attack_Damage;
 
-    GameEntity Player_Entity;
+    Health Player_Health;
 
     protected override void Start()
     {
         base.Start();
 
-        Player_Entity = target.GetComponent<GameEntity>();
+        Player_Health = target.GetComponent<Health>();
     }
 
     protected override void Update()
@@ -38,6 +38,6 @@ public class MoldyMeleeToast : Enemy
 
     private void Attack()
     {
-        Player_Entity.Damage(Attack_Damage);
+        Player_Health.Damage(Attack_Damage);
     }
 }

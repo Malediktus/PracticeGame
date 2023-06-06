@@ -10,7 +10,7 @@ public class Enemy_projectile : MonoBehaviour
     {
         if (collision.collider.name == "Player")
         {
-            collision.gameObject.GetComponent<GameEntity>().Damage(Damage);
+            collision.gameObject.GetComponent<Health>().Damage(Damage);
         }
 
         Destroy(this.gameObject);

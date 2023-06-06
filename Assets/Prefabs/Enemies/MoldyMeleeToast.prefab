@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2088117281252049322}
   - component: {fileID: 26283300868644025}
   - component: {fileID: 8585793230463656391}
+  - component: {fileID: -5434686252815630205}
   m_Layer: 6
   m_Name: MoldyMeleeToast
   m_TagString: Untagged
@@ -201,6 +202,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f578a51fec0e8f647953565cc91342f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  nextWaypointDistance: 3
+  stopDistanceFromTarget: 2.5
+  speed: 4
+  MinimumDistanceToAttack: 2.5
+  Attack_speed: 2
+  Attack_Damage: 2
+--- !u!114 &-5434686252815630205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762341880772842553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45c8405ff7a4497881251eeb46c0dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   maxHealth: 50
   onDeathEvent:
     m_PersistentCalls:
@@ -247,13 +267,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  target: {fileID: 0}
-  nextWaypointDistance: 3
-  stopDistanceFromTarget: 2.5
-  speed: 4
-  MinimumDistanceToAttack: 2.5
-  Attack_speed: 2
-  Attack_Damage: 2
 --- !u!1 &3609798473664872134
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameEntity : MonoBehaviour
+public class Health : MonoBehaviour
 {
-    [Header("GameEntity")]
+    [Header("Health")]
     [SerializeField]
     protected float maxHealth = 50.0f;
     [SerializeField]
@@ -15,7 +15,7 @@ public class GameEntity : MonoBehaviour
 
     protected float health;
 
-    public GameEntity()
+    private void Awake()
     {
         health = maxHealth;
     }
@@ -34,5 +34,15 @@ public class GameEntity : MonoBehaviour
         onHealEvent.Invoke(amount);
         if (health > maxHealth)
             health = maxHealth;
+    }
+
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public float GetHealth()
+    {
+        return health;
     }
 }

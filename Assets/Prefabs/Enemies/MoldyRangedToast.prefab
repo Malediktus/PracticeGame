@@ -205,7 +205,7 @@ MonoBehaviour:
   target: {fileID: 0}
   nextWaypointDistance: 3
   stopDistanceFromTarget: 13
-  speed: 5
+  speed: 2
   MinimumDistanceToAttack: 13
   Attack_speed: 4
   Attack_Damage: 5

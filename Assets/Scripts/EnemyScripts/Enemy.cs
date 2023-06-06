@@ -29,6 +29,8 @@ public class Enemy : GameEntity
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        target = GameObject.Find("Player").transform;
+
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = maxHealth;
         healthBar.value = health;

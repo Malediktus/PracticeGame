@@ -23,12 +23,21 @@ public class Player : MonoBehaviour
     private float swordStapDamage = 10.0f;
     [SerializeField]
     private float swordStapCooldown = 0.5f;
+    [SerializeField]
+    private float swipeDamage = 5.0f;
+    [SerializeField]
+    private float swipeWidth = 0.0f;
+    [SerializeField]
+    private float swipeHeight = 0.0f;
+    [SerializeField]
+    private Transform swipeHitPoint;
 
     private Rigidbody2D rb;
     private Slider healthBar;
     private Health health;
     private SpriteRenderer spriteRenderer;
-    private float timeStamp;
+    private float stapTimeStamp;
+    private float swipeTimeStamp;
 
     private Vector2 velocity;
 
@@ -40,7 +49,8 @@ public class Player : MonoBehaviour
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = health.GetMaxHealth();
         healthBar.value = health.GetHealth();
-        timeStamp = Time.time;
+        stapTimeStamp = Time.time;
+        swipeTimeStamp = Time.time;
     }
 
     private void FixedUpdate()
@@ -110,10 +120,13 @@ public class Player : MonoBehaviour
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if (Time.time < timeStamp)
+        if (!context.performed)
             return;
 
-        timeStamp = Time.time + swordStapCooldown;
+        if (Time.time < stapTimeStamp)
+            return;
+
+        stapTimeStamp = Time.time + swordStapCooldown;
 
         var enemies = Physics2D.OverlapAreaAll(
             new Vector2(hitPoint.position.x, hitPoint.position.y + swordHeight),
@@ -124,6 +137,30 @@ public class Player : MonoBehaviour
         foreach(var enemy in enemies)
         {
             enemy.GetComponent<Health>().Damage(swordStapDamage);
+        }
+    }
+
+    public void OnSwipe(InputAction.CallbackContext context)
+    {
+        // TODO: Start animation if context.started
+
+        if (!context.performed)
+            return;
+
+        if (Time.time < swipeTimeStamp)
+            return;
+
+        swipeTimeStamp = Time.time + swordStapCooldown;
+
+        var enemies = Physics2D.OverlapAreaAll(
+            new Vector2(swipeHitPoint.position.x, swipeHitPoint.position.y + swipeHeight),
+            new Vector2(swipeHitPoint.position.x + swipeWidth, swipeHitPoint.position.y),
+            enemyLayer.value
+        );
+
+        foreach (var enemy in enemies)
+        {
+            enemy.GetComponent<Health>().Damage(swipeDamage);
         }
     }
 

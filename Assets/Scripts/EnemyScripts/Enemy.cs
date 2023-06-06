@@ -6,7 +6,7 @@ public class Enemy : GameEntity
 {
     [Header("AI")]
     [SerializeField]
-    private Transform target;
+    protected Transform target;
     [SerializeField]
     private float nextWaypointDistance = 3.0f;
     [SerializeField]
@@ -22,10 +22,10 @@ public class Enemy : GameEntity
     private Vector2 velocity;
 
     private Seeker seeker;
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
     private Slider healthBar;
 
-    private void Start()
+    protected virtual void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -53,7 +53,7 @@ public class Enemy : GameEntity
         currentWaypoint = 0;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (path == null || currentWaypoint >= path.vectorPath.Count)
             return;

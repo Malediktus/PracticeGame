@@ -1,6 +1,8 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class Player : MonoBehaviour
 {
@@ -10,35 +12,34 @@ public class Player : MonoBehaviour
 
     [Header("Combat")]
     [SerializeField]
-    private float swordWidth = 0.0f;
-    [SerializeField]
-    private float swordHeight = 0.0f;
+    private LayerMask enemyLayer;
     [SerializeField]
     private Transform sword;
     [SerializeField]
     private Transform hitPoint;
     [SerializeField]
-    private LayerMask enemyLayer;
+    private float swordDamage = 10.0f;
     [SerializeField]
-    private float swordStapDamage = 10.0f;
+    private float swordCooldown = 0.5f;
     [SerializeField]
-    private float swordStapCooldown = 0.5f;
+    private float swordWidth = 0.0f;
+    [SerializeField]
+    private float swordHeight = 0.0f;
+    [SerializeField]
+    private Transform swipeHitPoint;
     [SerializeField]
     private float swipeDamage = 5.0f;
     [SerializeField]
     private float swipeWidth = 0.0f;
     [SerializeField]
     private float swipeHeight = 0.0f;
-    [SerializeField]
-    private Transform swipeHitPoint;
 
     private Rigidbody2D rb;
     private Slider healthBar;
     private Health health;
     private SpriteRenderer spriteRenderer;
-    private float stapTimeStamp;
-    private float swipeTimeStamp;
 
+    private float stabTimeStamp;
     private Vector2 velocity;
 
     private void Start()
@@ -49,55 +50,12 @@ public class Player : MonoBehaviour
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = health.GetMaxHealth();
         healthBar.value = health.GetHealth();
-        stapTimeStamp = Time.time;
-        swipeTimeStamp = Time.time;
+        stabTimeStamp = Time.time;
     }
 
     private void FixedUpdate()
     {
         rb.velocity = velocity * speed;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Mesh mesh = new Mesh();
-        Vector3[] vertices = new Vector3[4]
-        {
-            new Vector3(0, 0, 0),
-            new Vector3(swordWidth, 0, 0),
-            new Vector3(0, swordHeight, 0),
-            new Vector3(swordWidth, swordHeight, 0)
-        };
-        mesh.vertices = vertices;
-
-        int[] tris = new int[6]
-        {
-            // lower left triangle
-            0, 2, 1,
-            // upper right triangle
-            2, 3, 1
-        };
-        mesh.triangles = tris;
-
-        Vector3[] normals = new Vector3[4]
-        {
-            -Vector3.forward,
-            -Vector3.forward,
-            -Vector3.forward,
-            -Vector3.forward
-        };
-        mesh.normals = normals;
-
-        Vector2[] uv = new Vector2[4]
-        {
-              new Vector2(0, 0),
-              new Vector2(1, 0),
-              new Vector2(0, 1),
-              new Vector2(1, 1)
-        };
-        mesh.uv = uv;
-
-        Gizmos.DrawWireMesh(mesh, 0, hitPoint.position);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -118,26 +76,21 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void OnFire(InputAction.CallbackContext context)
+    public void OnStab(InputAction.CallbackContext context)
     {
         if (!context.performed)
             return;
 
-        if (Time.time < stapTimeStamp)
+        if (Time.time < stabTimeStamp)
             return;
 
-        stapTimeStamp = Time.time + swordStapCooldown;
+        stabTimeStamp = Time.time + swordCooldown;
 
-        var enemies = Physics2D.OverlapAreaAll(
+        DamageEnemiesInArea(
             new Vector2(hitPoint.position.x, hitPoint.position.y + swordHeight),
             new Vector2(hitPoint.position.x + swordWidth, hitPoint.position.y),
-            enemyLayer.value
+            swordDamage
         );
-
-        foreach(var enemy in enemies)
-        {
-            enemy.GetComponent<Health>().Damage(swordStapDamage);
-        }
     }
 
     public void OnSwipe(InputAction.CallbackContext context)
@@ -147,21 +100,19 @@ public class Player : MonoBehaviour
         if (!context.performed)
             return;
 
-        if (Time.time < swipeTimeStamp)
-            return;
-
-        swipeTimeStamp = Time.time + swordStapCooldown;
-
-        var enemies = Physics2D.OverlapAreaAll(
+        DamageEnemiesInArea(
             new Vector2(swipeHitPoint.position.x, swipeHitPoint.position.y + swipeHeight),
             new Vector2(swipeHitPoint.position.x + swipeWidth, swipeHitPoint.position.y),
-            enemyLayer.value
+            swipeDamage
         );
+    }
+
+    private void DamageEnemiesInArea(Vector2 topRightCorner, Vector2 bottomLeftCorner, float damage)
+    {
+        var enemies = Physics2D.OverlapAreaAll(topRightCorner, bottomLeftCorner, enemyLayer.value);
 
         foreach (var enemy in enemies)
-        {
-            enemy.GetComponent<Health>().Damage(swipeDamage);
-        }
+            enemy.GetComponent<Health>().Damage(damage);
     }
 
     public void OnDeath()

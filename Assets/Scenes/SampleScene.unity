@@ -1129,18 +1129,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  swordWidth: 1
-  swordHeight: 0.2
-  sword: {fileID: 1236149471}
-  hitPoint: {fileID: 203313907}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  swordStapDamage: 10
-  swordStapCooldown: 0.5
-  swipeWith: 1.5
-  swipeHeight: 6.2
+  sword: {fileID: 1236149471}
+  hitPoint: {fileID: 203313907}
+  swordDamage: 10
+  swordCooldown: 0.5
+  swordWidth: 1
+  swordHeight: 0.2
   swipeHitPoint: {fileID: 642067556}
+  swipeDamage: 5
+  swipeWidth: 1.5
+  swipeHeight: 6.2
 --- !u!50 &700845583
 Rigidbody2D:
   serializedVersion: 4
@@ -1258,7 +1259,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 700845582}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnFire
+        m_MethodName: OnStab
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

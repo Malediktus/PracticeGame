@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 1059797}
   - component: {fileID: 1059796}
   - component: {fileID: 1059795}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 369082098}
   - component: {fileID: 369082100}
   - component: {fileID: 369082099}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1102,6 +1102,9 @@ MonoBehaviour:
   swordHeight: 0.2
   sword: {fileID: 1236149471}
   hitPoint: {fileID: 203313907}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!50 &700845583
 Rigidbody2D:
   serializedVersion: 4
@@ -1220,7 +1223,19 @@ MonoBehaviour:
     m_ActionId: 4b7bb44e-e554-45c1-be0a-e5bb75b5284d
     m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 700845582}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: faa82360-4383-464f-9293-95c53b5779a7
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -1336,7 +1351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 709148589}
   - component: {fileID: 709148590}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1633,7 +1648,7 @@ GameObject:
   - component: {fileID: 1012246499}
   - component: {fileID: 1012246501}
   - component: {fileID: 1012246500}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2090,7 +2105,7 @@ GameObject:
   - component: {fileID: 1760648067}
   - component: {fileID: 1760648068}
   - component: {fileID: 1760648069}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -17,11 +17,18 @@ public class Player : MonoBehaviour
     private Transform sword;
     [SerializeField]
     private Transform hitPoint;
+    [SerializeField]
+    private LayerMask enemyLayer;
+    [SerializeField]
+    private float swordStapDamage = 10.0f;
+    [SerializeField]
+    private float swordStapCooldown = 0.5f;
 
     private Rigidbody2D rb;
     private Slider healthBar;
     private Health health;
     private SpriteRenderer spriteRenderer;
+    private float timeStamp;
 
     private Vector2 velocity;
 
@@ -33,6 +40,7 @@ public class Player : MonoBehaviour
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = health.GetMaxHealth();
         healthBar.value = health.GetHealth();
+        timeStamp = Time.time;
     }
 
     private void FixedUpdate()
@@ -97,6 +105,25 @@ public class Player : MonoBehaviour
         {
             spriteRenderer.flipX = false;
             sword.transform.position = new Vector3(sword.transform.position.x - transform.localScale.x * 2, sword.transform.position.y, 0.0f);
+        }
+    }
+
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (Time.time < timeStamp)
+            return;
+
+        timeStamp = Time.time + swordStapCooldown;
+
+        var enemies = Physics2D.OverlapAreaAll(
+            new Vector2(hitPoint.position.x, hitPoint.position.y + swordHeight),
+            new Vector2(hitPoint.position.x + swordWidth, hitPoint.position.y),
+            enemyLayer.value
+        );
+
+        foreach(var enemy in enemies)
+        {
+            enemy.GetComponent<Health>().Damage(swordStapDamage);
         }
     }
 

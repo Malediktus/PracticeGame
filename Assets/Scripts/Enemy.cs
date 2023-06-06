@@ -5,16 +5,12 @@ using Pathfinding;
 public class Enemy : MonoBehaviour
 {
     [Header("AI")]
-    [SerializeField]
-    private Transform target;
-    [SerializeField]
-    private float nextWaypointDistance = 3.0f;
-    [SerializeField]
-    private float stopDistanceFromTarget = 0.5f;
+    [SerializeField] private Transform target;
+    [SerializeField] private float nextWaypointDistance = 3.0f;
+    [SerializeField] private float stopDistanceFromTarget = 0.5f;
 
     [Header("Movement")]
-    [SerializeField]
-    private float speed = 5.0f;
+    [SerializeField] private float speed = 5.0f;
 
     private Path path;
     private int currentWaypoint = 0;

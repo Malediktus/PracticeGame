@@ -7,32 +7,20 @@ using static UnityEditor.Timeline.TimelinePlaybackControls;
 public class Player : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField]
-    private float speed = 5.0f;
+    [SerializeField] private float speed = 5.0f;
 
     [Header("Combat")]
-    [SerializeField]
-    private LayerMask enemyLayer;
-    [SerializeField]
-    private Transform sword;
-    [SerializeField]
-    private Transform hitPoint;
-    [SerializeField]
-    private float swordDamage = 10.0f;
-    [SerializeField]
-    private float swordCooldown = 0.5f;
-    [SerializeField]
-    private float swordWidth = 0.0f;
-    [SerializeField]
-    private float swordHeight = 0.0f;
-    [SerializeField]
-    private Transform swipeHitPoint;
-    [SerializeField]
-    private float swipeDamage = 5.0f;
-    [SerializeField]
-    private float swipeWidth = 0.0f;
-    [SerializeField]
-    private float swipeHeight = 0.0f;
+    [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private Transform sword;
+    [SerializeField] private Transform hitPoint;
+    [SerializeField] private float swordDamage = 10.0f;
+    [SerializeField] private float swordCooldown = 0.5f;
+    [SerializeField] private float swordWidth = 0.0f;
+    [SerializeField] private float swordHeight = 0.0f;
+    [SerializeField] private Transform swipeHitPoint;
+    [SerializeField] private float swipeDamage = 5.0f;
+    [SerializeField] private float swipeWidth = 0.0f;
+    [SerializeField] private float swipeHeight = 0.0f;
 
     private Rigidbody2D rb;
     private Slider healthBar;

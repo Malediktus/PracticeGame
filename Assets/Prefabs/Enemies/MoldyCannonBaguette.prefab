@@ -417,11 +417,11 @@ MonoBehaviour:
   nextWaypointDistance: 3
   stopDistanceFromTarget: 15
   speed: 1.5
-  MinimumDistanceToAttack: 15
-  Attack_speed: 0.35
-  Attack_Damage: 10
-  Projectile_velocity: 8
-  Projectile: {fileID: 6582437299804821108, guid: a7fa9857cd6940b4fa0afa43492171d4, type: 3}
+  minimumDistanceToAttack: 15
+  attackSpeed: 0.35
+  attackDamage: 10
+  projectileVelocity: 8
+  projectile: {fileID: 6582437299804821108, guid: a7fa9857cd6940b4fa0afa43492171d4, type: 3}
 --- !u!1 &2133698895983854993
 GameObject:
   m_ObjectHideFlags: 0

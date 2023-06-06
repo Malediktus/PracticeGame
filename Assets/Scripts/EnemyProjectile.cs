@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_projectile : MonoBehaviour
+public class EnemyProjectile : MonoBehaviour
 {
-    float Damage;
+    private float damage;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.name == "Player")
         {
-            collision.gameObject.GetComponent<Health>().Damage(Damage);
+            collision.gameObject.GetComponent<Health>().Damage(damage);
         }
 
         Destroy(this.gameObject);
     }
 
-    public void SetDamage(float Enemy_Damage)
+    public void SetDamage(float enemyDamage)
     {
-        Damage = Enemy_Damage;
+        damage = enemyDamage;
     }
 }

@@ -5,23 +5,23 @@ using UnityEngine;
 public class MoldyCannonBaguette : Enemy
 {
     [Header("Attack")]
-    [SerializeField] float MinimumDistanceToAttack;
-    [SerializeField] float Attack_speed;
-    [SerializeField] float Attack_Damage;
-    [SerializeField] float Projectile_velocity;
-    [SerializeField] GameObject Projectile;
+    [SerializeField] private float minimumDistanceToAttack;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private float attackDamage;
+    [SerializeField] private float projectileVelocity;
+    [SerializeField] private GameObject projectile;
 
-    Transform[] Cannon_points = new Transform[6];
-    int ShootIndex;
+    private Transform[] cannonPoints = new Transform[6];
+    private int shootIndex;
 
     protected override void Start()
     {
         base.Start();
 
-        //Getting the cannon positions
+        // Getting the cannon positions
         for (int i = 0; i < 6; i++)
         {
-            Cannon_points[i] = transform.GetChild(1).GetChild(i).transform;
+            cannonPoints[i] = transform.GetChild(1).GetChild(i).transform;
         }
     }
 
@@ -29,15 +29,15 @@ public class MoldyCannonBaguette : Enemy
     {
         base.Update();
 
-        //Gets distance between itself and player
+        // Gets distance between itself and player
         float distance = Vector2.Distance(rb.position, target.position);
 
-        //if the enemy is close enough to the player and isn't already invoking, it attacks
-        if (distance < MinimumDistanceToAttack && !IsInvoking("Shoot"))
+        // If the enemy is close enough to the player and isn't already invoking, it attacks
+        if (distance < minimumDistanceToAttack && !IsInvoking("Shoot"))
         {
-            InvokeRepeating("Shoot", 1, Attack_speed);
+            InvokeRepeating("Shoot", 1, attackSpeed);
         }
-        else if(distance > MinimumDistanceToAttack)
+        else if(distance > minimumDistanceToAttack)
         {
             CancelInvoke("Shoot");
         }
@@ -45,18 +45,14 @@ public class MoldyCannonBaguette : Enemy
 
     private void Shoot()
     {
-        //The function will go through all 6 cannons in order and shoot a shot out of each of them
+        // The function will go through all 6 cannons in order and shoot a shot out of each of them
+        Rigidbody2D rb = Instantiate(projectile, cannonPoints[shootIndex].position, Quaternion.identity).GetComponent<Rigidbody2D>();
 
-        Rigidbody2D rb = Instantiate(Projectile, Cannon_points[ShootIndex].position, Quaternion.identity).GetComponent<Rigidbody2D>();
+        rb.velocity = (target.position - transform.position).normalized * projectileVelocity;
+        rb.GetComponent<EnemyProjectile>().SetDamage(attackDamage);
 
-        rb.velocity = (target.position - transform.position).normalized * Projectile_velocity;
-        rb.GetComponent<Enemy_projectile>().SetDamage(Attack_Damage);
-
-        ShootIndex++;
-
-        if (ShootIndex == 6)
-        {
-            ShootIndex = 0;
-        }
+        shootIndex++;
+        if (shootIndex == 6)
+            shootIndex = 0;
     }
 }

@@ -5,32 +5,32 @@ using UnityEngine;
 public class MoldyMeleeToast : Enemy
 {
     [Header("Attack")]
-    [SerializeField] float MinimumDistanceToAttack;
-    [SerializeField] float Attack_speed;
-    [SerializeField] float Attack_Damage;
+    [SerializeField] private float minimumDistanceToAttack;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private float attackDamage;
 
-    Health Player_Health;
+    private Health playerHealth;
 
     protected override void Start()
     {
         base.Start();
 
-        Player_Health = target.GetComponent<Health>();
+        playerHealth = target.GetComponent<Health>();
     }
 
     protected override void Update()
     {
         base.Update();
 
-        //Gets distance between itself and player
+        // Gets distance between itself and player
         float distance = Vector2.Distance(rb.position, target.position);
 
-        //if the enemy is close enough to the player and isn't already invoking, it attacks
-        if (distance < MinimumDistanceToAttack && !IsInvoking("Attack"))
+        // If the enemy is close enough to the player and isn't already invoking, it attacks
+        if (distance < minimumDistanceToAttack && !IsInvoking("Attack"))
         {
-            InvokeRepeating("Attack", Attack_speed / 2, Attack_speed);
+            InvokeRepeating("Attack", attackSpeed / 2, attackSpeed);
         }
-        else if(distance > MinimumDistanceToAttack)
+        else if(distance > minimumDistanceToAttack)
         {
             CancelInvoke("Attack");
         }
@@ -38,6 +38,6 @@ public class MoldyMeleeToast : Enemy
 
     private void Attack()
     {
-        Player_Health.Damage(Attack_Damage);
+        playerHealth.Damage(attackDamage);
     }
 }

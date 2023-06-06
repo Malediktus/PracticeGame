@@ -206,11 +206,11 @@ MonoBehaviour:
   nextWaypointDistance: 3
   stopDistanceFromTarget: 13
   speed: 2
-  MinimumDistanceToAttack: 13
-  Attack_speed: 4
-  Attack_Damage: 5
-  Projectile_velocity: 10
-  Projectile: {fileID: 6582437299804821108, guid: a7fa9857cd6940b4fa0afa43492171d4, type: 3}
+  minimumDistanceToAttack: 13
+  attackSpeed: 4
+  attackDamage: 5
+  projectileVelocity: 10
+  projectile: {fileID: 6582437299804821108, guid: a7fa9857cd6940b4fa0afa43492171d4, type: 3}
 --- !u!114 &8329908972196460867
 MonoBehaviour:
   m_ObjectHideFlags: 0

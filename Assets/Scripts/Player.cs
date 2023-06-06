@@ -8,9 +8,20 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float speed = 5.0f;
 
+    [Header("Combat")]
+    [SerializeField]
+    private float swordWidth = 0.0f;
+    [SerializeField]
+    private float swordHeight = 0.0f;
+    [SerializeField]
+    private Transform sword;
+    [SerializeField]
+    private Transform hitPoint;
+
     private Rigidbody2D rb;
     private Slider healthBar;
     private Health health;
+    private SpriteRenderer spriteRenderer;
 
     private Vector2 velocity;
 
@@ -18,6 +29,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = health.GetMaxHealth();
         healthBar.value = health.GetHealth();
@@ -28,9 +40,64 @@ public class Player : MonoBehaviour
         rb.velocity = velocity * speed;
     }
 
+    private void OnDrawGizmos()
+    {
+        Mesh mesh = new Mesh();
+        Vector3[] vertices = new Vector3[4]
+        {
+            new Vector3(0, 0, 0),
+            new Vector3(swordWidth, 0, 0),
+            new Vector3(0, swordHeight, 0),
+            new Vector3(swordWidth, swordHeight, 0)
+        };
+        mesh.vertices = vertices;
+
+        int[] tris = new int[6]
+        {
+            // lower left triangle
+            0, 2, 1,
+            // upper right triangle
+            2, 3, 1
+        };
+        mesh.triangles = tris;
+
+        Vector3[] normals = new Vector3[4]
+        {
+            -Vector3.forward,
+            -Vector3.forward,
+            -Vector3.forward,
+            -Vector3.forward
+        };
+        mesh.normals = normals;
+
+        Vector2[] uv = new Vector2[4]
+        {
+              new Vector2(0, 0),
+              new Vector2(1, 0),
+              new Vector2(0, 1),
+              new Vector2(1, 1)
+        };
+        mesh.uv = uv;
+
+        Gizmos.DrawWireMesh(mesh, 0, hitPoint.position);
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         velocity = context.ReadValue<Vector2>();
+
+        if (spriteRenderer.flipX == false && velocity.x == 1.0f)
+        {
+            spriteRenderer.flipX = true;
+            // TODO: I dont realy like this code, maybe the sword shoult be directly in the player sprite and not seperate
+            sword.transform.position = new Vector3(sword.transform.position.x + transform.localScale.x * 2, sword.transform.position.y, 0.0f);
+        }
+
+        else if (spriteRenderer.flipX == true && velocity.x == -1.0f)
+        {
+            spriteRenderer.flipX = false;
+            sword.transform.position = new Vector3(sword.transform.position.x - transform.localScale.x * 2, sword.transform.position.y, 0.0f);
+        }
     }
 
     public void OnDeath()

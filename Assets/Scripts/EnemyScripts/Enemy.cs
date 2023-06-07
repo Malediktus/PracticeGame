@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("AI")]
     [SerializeField]
-    private Transform target;
+    protected Transform target;
     [SerializeField]
     private float nextWaypointDistance = 3.0f;
     [SerializeField]
@@ -22,14 +22,16 @@ public class Enemy : MonoBehaviour
     private Vector2 velocity;
 
     private Seeker seeker;
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
     private Slider healthBar;
     private Health health;
 
-    private void Start()
+    protected virtual void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        target = GameObject.Find("Player").transform;
+
         health = GetComponent<Health>();
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = health.GetMaxHealth();
@@ -55,7 +57,7 @@ public class Enemy : MonoBehaviour
         currentWaypoint = 0;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (path == null || currentWaypoint >= path.vectorPath.Count)
             return;

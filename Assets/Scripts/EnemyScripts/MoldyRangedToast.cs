@@ -16,7 +16,7 @@ public class MoldyRangedToast : Enemy
         base.Update();
 
         // Gets distance between itself and player
-        float distance = Vector2.Distance(rb.position, target.position);
+        float distance = Vector2.Distance(rb.position, GetTarget().position);
 
         // If the enemy is close enough to the player and isn't already invoking, it attacks
         if (distance < minimumDistanceToAttack && !IsInvoking("Shoot"))
@@ -33,7 +33,7 @@ public class MoldyRangedToast : Enemy
     {
         Rigidbody2D rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>();
 
-        rb.velocity = (target.position - transform.position).normalized * projectileVelocity;
+        rb.velocity = (GetTarget().position - transform.position).normalized * projectileVelocity;
         rb.GetComponent<EnemyProjectile>().SetDamage(attackDamage);
     }
 }

@@ -15,7 +15,7 @@ public class MoldyMeleeToast : Enemy
     {
         base.Start();
 
-        playerHealth = target.GetComponent<Health>();
+        playerHealth = GetTarget().GetComponent<Health>();
     }
 
     protected override void Update()
@@ -23,7 +23,7 @@ public class MoldyMeleeToast : Enemy
         base.Update();
 
         // Gets distance between itself and player
-        float distance = Vector2.Distance(rb.position, target.position);
+        float distance = Vector2.Distance(rb.position, GetTarget().position);
 
         // If the enemy is close enough to the player and isn't already invoking, it attacks
         if (distance < minimumDistanceToAttack && !IsInvoking("Attack"))

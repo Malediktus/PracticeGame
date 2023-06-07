@@ -30,7 +30,7 @@ public class MoldyCannonBaguette : Enemy
         base.Update();
 
         // Gets distance between itself and player
-        float distance = Vector2.Distance(rb.position, target.position);
+        float distance = Vector2.Distance(rb.position, GetTarget().position);
 
         // If the enemy is close enough to the player and isn't already invoking, it attacks
         if (distance < minimumDistanceToAttack && !IsInvoking("Shoot"))
@@ -48,7 +48,7 @@ public class MoldyCannonBaguette : Enemy
         // The function will go through all 6 cannons in order and shoot a shot out of each of them
         Rigidbody2D rb = Instantiate(projectile, cannonPoints[shootIndex].position, Quaternion.identity).GetComponent<Rigidbody2D>();
 
-        rb.velocity = (target.position - transform.position).normalized * projectileVelocity;
+        rb.velocity = (GetTarget().position - transform.position).normalized * projectileVelocity;
         rb.GetComponent<EnemyProjectile>().SetDamage(attackDamage);
 
         shootIndex++;

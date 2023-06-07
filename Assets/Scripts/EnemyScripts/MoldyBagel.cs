@@ -9,24 +9,24 @@ public class MoldyBagel : Enemy
     [SerializeField] private float healRate;
     [SerializeField] private float healAmount;
 
-    private Health playerHealth;
-
     protected override void Start()
     {
         base.Start();
-
-        playerHealth = target.GetComponent<Health>();
-
         InvokeRepeating("Heal", 0, healRate);
     }
 
     protected override void Update()
     {
         base.Update();
+
+        // TODO: Error still gets printed before this update method. Better solution needed
+        if (ReferenceEquals(GetTarget().gameObject, null))
+            SetTarget(transform);
     }
 
     private void Heal()
     {
+        // TODO: Use a circle cast
         GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         float SmallestDistance = Mathf.Infinity;
@@ -50,11 +50,11 @@ public class MoldyBagel : Enemy
 
         if (Enemies.Length > 0)
         {
-            target = Enemies[IndexOfSmallest].transform;
+            SetTarget(Enemies[IndexOfSmallest].transform);
         }
         else
         {
-            target = transform;
+            SetTarget(transform);
         }
     }
 }

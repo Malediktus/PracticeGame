@@ -430,9 +430,9 @@ MonoBehaviour:
   nextWaypointDistance: 3
   stopDistanceFromTarget: 5
   speed: 4
-  MinimumDistanceToHeal: 5
-  Heal_rate: 2
-  Heal_Amount: 5
+  minimumDistanceToHeal: 5
+  healRate: 2
+  healAmount: 5
 --- !u!1 &3149169863988173690
 GameObject:
   m_ObjectHideFlags: 0

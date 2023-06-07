@@ -5,19 +5,19 @@ using UnityEngine;
 public class MoldyBagel : Enemy
 {
     [Header("Attack")]
-    [SerializeField] float MinimumDistanceToHeal;
-    [SerializeField] float Heal_rate;
-    [SerializeField] float Heal_Amount;
+    [SerializeField] private float minimumDistanceToHeal;
+    [SerializeField] private float healRate;
+    [SerializeField] private float healAmount;
 
-    Health Player_Health;
+    private Health playerHealth;
 
     protected override void Start()
     {
         base.Start();
 
-        Player_Health = target.GetComponent<Health>();
+        playerHealth = target.GetComponent<Health>();
 
-        InvokeRepeating("Heal", 0, Heal_rate);
+        InvokeRepeating("Heal", 0, healRate);
     }
 
     protected override void Update()
@@ -36,9 +36,9 @@ public class MoldyBagel : Enemy
         {
             float distance = Vector2.Distance(Enemies[i].transform.position, transform.position);
 
-            if (distance < MinimumDistanceToHeal)
+            if (distance < minimumDistanceToHeal)
             {
-                Enemies[i].GetComponent<Health>().Heal(Heal_Amount);
+                Enemies[i].GetComponent<Health>().Heal(healAmount);
             }
 
             if (distance < SmallestDistance && distance > 0.1f)

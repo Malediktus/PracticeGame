@@ -23,30 +23,30 @@ public class MoldyBagel : Enemy
     private void Heal()
     {
         // TODO: Use a circle cast
-        GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        float SmallestDistance = Mathf.Infinity;
-        int IndexOfSmallest = 0;
+        float smallestDistance = Mathf.Infinity;
+        int indexOfSmallest = 0;
 
-        for (int i = 0; i < Enemies.Length; i++)
+        for (int i = 0; i < enemies.Length; i++)
         {
-            float distance = Vector2.Distance(Enemies[i].transform.position, transform.position);
+            float distance = Vector2.Distance(enemies[i].transform.position, transform.position);
 
             if (distance < minimumDistanceToHeal)
             {
-                Enemies[i].GetComponent<Health>().Heal(healAmount);
+                enemies[i].GetComponent<Health>().Heal(healAmount);
             }
 
-            if (distance < SmallestDistance && distance > 0.1f)
+            if (distance < smallestDistance && distance > 0.1f)
             {
-                SmallestDistance = distance;
-                IndexOfSmallest = i;
+                smallestDistance = distance;
+                indexOfSmallest = i;
             }
         }
 
-        if (Enemies.Length > 0)
+        if (enemies.Length > 0)
         {
-            SetTarget(Enemies[IndexOfSmallest].transform);
+            SetTarget(enemies[indexOfSmallest].transform);
             GetTarget().gameObject.GetComponent<Health>().onDeathEvent.AddListener(OnTargetDeath);
         }
         else

@@ -18,6 +18,15 @@ public class MoldyBagel : Enemy
     protected override void Update()
     {
         base.Update();
+
+        if (IsCured && healAmount > 0)
+        {
+            healAmount *= -1;
+        }
+        else if(!IsCured && healAmount < 0)
+        {
+            healAmount *= -1;
+        }
     }
 
     private void Heal()

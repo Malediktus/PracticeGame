@@ -44,6 +44,7 @@ public class PlayerProjectile : MonoBehaviour
                     collision.gameObject.GetComponent<Enemy>().Jam();
                     break;
                 case Player.SpreadType.Antidote:
+                    collision.gameObject.GetComponent<Enemy>().Cure();
                     break;
             }
         }

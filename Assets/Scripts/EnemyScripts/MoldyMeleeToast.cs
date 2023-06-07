@@ -14,8 +14,6 @@ public class MoldyMeleeToast : Enemy
     protected override void Start()
     {
         base.Start();
-
-        playerHealth = GetTarget().GetComponent<Health>();
     }
 
     protected override void Update()
@@ -38,6 +36,7 @@ public class MoldyMeleeToast : Enemy
 
     private void Attack()
     {
+        playerHealth = GetTarget().GetComponent<Health>();
         playerHealth.Damage(attackDamage);
     }
 }

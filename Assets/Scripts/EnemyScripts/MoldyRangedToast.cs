@@ -10,6 +10,7 @@ public class MoldyRangedToast : Enemy
     [SerializeField] private float attackDamage;
     [SerializeField] private float projectileVelocity;
     [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject friendlyProjectile;
 
     protected override void Update()
     {
@@ -31,9 +32,19 @@ public class MoldyRangedToast : Enemy
 
     private void Shoot()
     {
-        Rigidbody2D rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+        if (!IsCured)
+        {
+            Rigidbody2D rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>();
 
-        rb.velocity = (GetTarget().position - transform.position).normalized * projectileVelocity;
-        rb.GetComponent<EnemyProjectile>().SetDamage(attackDamage);
+            rb.velocity = (GetTarget().position - transform.position).normalized * projectileVelocity;
+            rb.GetComponent<EnemyProjectile>().SetDamage(attackDamage);
+        }
+        else
+        { 
+            Rigidbody2D rb = Instantiate(friendlyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+
+            rb.velocity = (GetTarget().position - transform.position).normalized * projectileVelocity;
+            rb.GetComponent<FriendlyProjectile>().SetDamage(attackDamage);
+        }
     }
 }

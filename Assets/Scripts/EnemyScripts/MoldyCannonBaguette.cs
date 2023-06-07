@@ -10,6 +10,7 @@ public class MoldyCannonBaguette : Enemy
     [SerializeField] private float attackDamage;
     [SerializeField] private float projectileVelocity;
     [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject friendlyProjectile;
 
     private Transform[] cannonPoints = new Transform[6];
     private int shootIndex;
@@ -45,14 +46,29 @@ public class MoldyCannonBaguette : Enemy
 
     private void Shoot()
     {
-        // The function will go through all 6 cannons in order and shoot a shot out of each of them
-        Rigidbody2D rb = Instantiate(projectile, cannonPoints[shootIndex].position, Quaternion.identity).GetComponent<Rigidbody2D>();
+        if (!IsCured)
+        {
+            // The function will go through all 6 cannons in order and shoot a shot out of each of them
+            Rigidbody2D rb = Instantiate(projectile, cannonPoints[shootIndex].position, Quaternion.identity).GetComponent<Rigidbody2D>();
 
-        rb.velocity = (GetTarget().position - transform.position).normalized * projectileVelocity;
-        rb.GetComponent<EnemyProjectile>().SetDamage(attackDamage);
+            rb.velocity = (GetTarget().position - transform.position).normalized * projectileVelocity;
+            rb.GetComponent<EnemyProjectile>().SetDamage(attackDamage);
 
-        shootIndex++;
-        if (shootIndex == 6)
-            shootIndex = 0;
+            shootIndex++;
+            if (shootIndex == 6)
+                shootIndex = 0;
+        }
+        else
+        {
+            // The function will go through all 6 cannons in order and shoot a shot out of each of them
+            Rigidbody2D rb = Instantiate(friendlyProjectile, cannonPoints[shootIndex].position, Quaternion.identity).GetComponent<Rigidbody2D>();
+
+            rb.velocity = (GetTarget().position - transform.position).normalized * projectileVelocity;
+            rb.GetComponent<FriendlyProjectile>().SetDamage(attackDamage);
+
+            shootIndex++;
+            if (shootIndex == 6)
+                shootIndex = 0;
+        }
     }
 }

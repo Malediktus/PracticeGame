@@ -37,6 +37,7 @@ public class Player : MonoBehaviour, IPowerable
     [Header("Spread bars")]
     [SerializeField] private Slider butterBar;
     [SerializeField] private Slider jamBar;
+    [SerializeField] private GameObject antidoteSlot;
 
     private Rigidbody2D rb;
     private Slider healthBar;
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour, IPowerable
 
     private float currentButterAmount;
     private float currentJamAmount;
+    private bool hasAntidote = true;
 
     private SpreadType spreadType;
 
@@ -188,6 +190,25 @@ public class Player : MonoBehaviour, IPowerable
             currentJamAmount -= smallJamConsumption;
 
             jamBar.value = currentJamAmount / jamCapacity;
+        }
+        else 
+        {
+            if (!hasAntidote)
+                return;
+
+            shootTimeStamp = Time.time + blasterCooldown;
+
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            Rigidbody2D projectileRigidBody = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+            projectileRigidBody.velocity = (mousePos - (Vector2)transform.position).normalized * projectileVelocity;
+
+            PlayerProjectile currentProjectile = projectileRigidBody.GetComponent<PlayerProjectile>();
+
+            currentProjectile.SetSpreadType(spreadType);
+            hasAntidote = false;
+
+            antidoteSlot.SetActive(false);
         }
     }
 

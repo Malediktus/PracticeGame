@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
 
     private float currentSpeed;
     protected bool IsJammed;
+    protected bool IsCured;
 
     protected virtual void Start()
     {
@@ -106,6 +107,58 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = velocity * currentSpeed;
+    }
+
+    public void Cure()
+    {
+        LookForEnemyTarget();
+        gameObject.layer = 10;
+        IsCured = true;
+
+        Invoke("Reinfect", 20);
+    }
+
+    private void LookForEnemyTarget()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        float smallestDistance = Mathf.Infinity;
+        int indexOfSmallest = 0;
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            float distance = Vector2.Distance(enemies[i].transform.position, transform.position);
+
+            if (distance < smallestDistance && distance > 0.1f)
+            {
+                smallestDistance = distance;
+                indexOfSmallest = i;
+            }
+        }
+
+        if (enemies.Length > 0)
+        {
+            SetTarget(enemies[indexOfSmallest].transform);
+            GetTarget().gameObject.GetComponent<Health>().onDeathEvent.AddListener(OnTargetDeath);
+        }
+        else
+        {
+            GetTarget().gameObject.GetComponent<Health>().onDeathEvent.RemoveListener(OnTargetDeath);
+            SetTarget(transform);
+        }
+    }
+    public void OnTargetDeath()
+    {
+        GetTarget().gameObject.GetComponent<Health>().onDeathEvent.RemoveListener(OnTargetDeath);
+        SetTarget(transform);
+    }
+
+    private void Reinfect()
+    {
+        target = GameObject.Find("Player").transform;
+        gameObject.layer = 6;
+
+        IsCured = false;
     }
 
     public void OnDeath()

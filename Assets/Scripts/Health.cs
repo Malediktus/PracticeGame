@@ -30,6 +30,9 @@ public class Health : MonoBehaviour
         onHealEvent.Invoke(amount);
         if (health > maxHealth)
             health = maxHealth;
+
+        if (health <= 0)
+            onDeathEvent.Invoke();
     }
 
     public float GetMaxHealth()

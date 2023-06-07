@@ -430,6 +430,7 @@ MonoBehaviour:
   nextWaypointDistance: 3
   stopDistanceFromTarget: 5
   speed: 4
+  jammedSpeedMultiplier: 0.25
   minimumDistanceToHeal: 5
   healRate: 2
   healAmount: 5

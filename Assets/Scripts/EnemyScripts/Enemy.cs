@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private float speed = 5.0f;
+    [SerializeField] private float jammedSpeedMultiplier;
 
     private Path path;
     private int currentWaypoint = 0;
@@ -22,6 +23,9 @@ public class Enemy : MonoBehaviour
     private Slider healthBar;
     private Health health;
 
+    private float currentSpeed;
+    protected bool IsJammed;
+
     protected virtual void Start()
     {
         seeker = GetComponent<Seeker>();
@@ -32,6 +36,8 @@ public class Enemy : MonoBehaviour
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = health.GetMaxHealth();
         healthBar.value = health.GetHealth();
+
+        currentSpeed = speed;
 
         InvokeRepeating("UpdatePath", 0.0f, 0.5f);
     }
@@ -78,9 +84,28 @@ public class Enemy : MonoBehaviour
         target = newTarget;
     }
 
+    public void Jam()
+    {
+        CancelInvoke("UnJam");
+
+        if (!IsJammed)
+        {
+            IsJammed = true;
+            currentSpeed *= jammedSpeedMultiplier;
+        }
+
+        Invoke("UnJam", 5);
+    }
+
+    private void UnJam()
+    {
+        IsJammed = false;
+        currentSpeed /= jammedSpeedMultiplier;
+    }
+
     private void FixedUpdate()
     {
-        rb.velocity = velocity * speed;
+        rb.velocity = velocity * currentSpeed;
     }
 
     public void OnDeath()

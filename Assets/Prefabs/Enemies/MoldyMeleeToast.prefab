@@ -206,6 +206,7 @@ MonoBehaviour:
   nextWaypointDistance: 3
   stopDistanceFromTarget: 2.5
   speed: 4
+  jammedSpeedMultiplier: 0.25
   minimumDistanceToAttack: 2.5
   attackSpeed: 1
   attackDamage: 5

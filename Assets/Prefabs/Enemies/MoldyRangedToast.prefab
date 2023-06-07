@@ -208,7 +208,7 @@ MonoBehaviour:
   speed: 2
   minimumDistanceToAttack: 13
   attackSpeed: 4
-  attackDamage: 5
+  attackDamage: 10
   projectileVelocity: 10
   projectile: {fileID: 6582437299804821108, guid: a7fa9857cd6940b4fa0afa43492171d4, type: 3}
 --- !u!114 &8329908972196460867

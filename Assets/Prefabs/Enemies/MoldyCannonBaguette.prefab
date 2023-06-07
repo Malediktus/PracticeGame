@@ -418,7 +418,7 @@ MonoBehaviour:
   stopDistanceFromTarget: 15
   speed: 1.5
   minimumDistanceToAttack: 15
-  attackSpeed: 0.35
+  attackSpeed: 0.6
   attackDamage: 10
   projectileVelocity: 8
   projectile: {fileID: 6582437299804821108, guid: a7fa9857cd6940b4fa0afa43492171d4, type: 3}

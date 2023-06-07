@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float swipeWidth = 0.0f;
     [SerializeField] private float swipeHeight = 0.0f;
 
+    [Header("Death screen")]
+    [SerializeField] private GameObject deathScreen;
+
     private Rigidbody2D rb;
     private Slider healthBar;
     private Health health;
@@ -50,14 +53,14 @@ public class Player : MonoBehaviour
     {
         velocity = context.ReadValue<Vector2>();
 
-        if (spriteRenderer.flipX == false && velocity.x == 1.0f)
+        if (spriteRenderer.flipX == false && velocity.x > 0)
         {
             spriteRenderer.flipX = true;
             // TODO: I dont realy like this code, maybe the sword shoult be directly in the player sprite and not seperate
             sword.transform.position = new Vector3(sword.transform.position.x + transform.localScale.x * 2, sword.transform.position.y, 0.0f);
         }
 
-        else if (spriteRenderer.flipX == true && velocity.x == -1.0f)
+        else if (spriteRenderer.flipX == true && velocity.x < 0)
         {
             spriteRenderer.flipX = false;
             sword.transform.position = new Vector3(sword.transform.position.x - transform.localScale.x * 2, sword.transform.position.y, 0.0f);
@@ -105,7 +108,8 @@ public class Player : MonoBehaviour
 
     public void OnDeath()
     {
-        Debug.Log("Player died");
+        Time.timeScale = 0;
+        deathScreen.SetActive(true);
     }
 
     public void OnDamage(float amount)

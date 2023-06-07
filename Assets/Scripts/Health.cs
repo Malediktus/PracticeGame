@@ -5,9 +5,9 @@ public class Health : MonoBehaviour
 {
     [Header("Health")]
     [SerializeField] protected float maxHealth = 50.0f;
-    [SerializeField] private UnityEvent onDeathEvent;
-    [SerializeField] private UnityEvent<float> onDamageEvent;
-    [SerializeField] private UnityEvent<float> onHealEvent;
+    [SerializeField] public UnityEvent onDeathEvent;
+    [SerializeField] public UnityEvent<float> onDamageEvent;
+    [SerializeField] public UnityEvent<float> onHealEvent;
 
     protected float health;
 

@@ -18,10 +18,6 @@ public class MoldyBagel : Enemy
     protected override void Update()
     {
         base.Update();
-
-        // TODO: Error still gets printed before this update method. Better solution needed
-        if (ReferenceEquals(GetTarget().gameObject, null))
-            SetTarget(transform);
     }
 
     private void Heal()
@@ -51,10 +47,18 @@ public class MoldyBagel : Enemy
         if (Enemies.Length > 0)
         {
             SetTarget(Enemies[IndexOfSmallest].transform);
+            GetTarget().gameObject.GetComponent<Health>().onDeathEvent.AddListener(OnTargetDeath);
         }
         else
         {
+            GetTarget().gameObject.GetComponent<Health>().onDeathEvent.RemoveListener(OnTargetDeath);
             SetTarget(transform);
         }
+    }
+
+    public void OnTargetDeath()
+    {
+        GetTarget().gameObject.GetComponent<Health>().onDeathEvent.RemoveListener(OnTargetDeath);
+        SetTarget(transform);
     }
 }

@@ -5,12 +5,17 @@ using Pathfinding;
 public class Enemy : MonoBehaviour
 {
     [Header("AI")]
-    [SerializeField] private Transform target;
+    [SerializeField] protected Position targetPosition;
+    [SerializeField, HideInInspector] private Transform target;
     [SerializeField] private float nextWaypointDistance = 3.0f;
     [SerializeField] private float stopDistanceFromTarget = 0.5f;
 
     [Header("Movement")]
     [SerializeField] private float speed = 5.0f;
+
+    [Header("Attack")]
+    [SerializeField] protected float minimumDistanceToAttack;
+    [SerializeField] protected float attackSpeed;
 
     private Path path;
     private int currentWaypoint = 0;
@@ -22,11 +27,13 @@ public class Enemy : MonoBehaviour
     private Slider healthBar;
     private Health health;
 
+    protected float DistanceToTarget => Vector2.Distance(rb.position, targetPosition.Value);
+
     protected virtual void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        target = GameObject.Find("Player").transform;
+        //target = GameObject.Find("Player").transform;
 
         health = GetComponent<Health>();
         healthBar = GetComponentInChildren<Slider>();
@@ -41,7 +48,8 @@ public class Enemy : MonoBehaviour
         if (!seeker.IsDone())
             return;
 
-        seeker.StartPath(transform.position, target.position, OnPathComplete);
+        //seeker.StartPath(transform.position, target.position, OnPathComplete);
+        seeker.StartPath(transform.position, targetPosition.Value, OnPathComplete);
     }
 
     private void OnPathComplete(Path p)
@@ -58,7 +66,8 @@ public class Enemy : MonoBehaviour
         if (path == null || currentWaypoint >= path.vectorPath.Count)
             return;
 
-        if (Vector2.Distance(transform.position, target.position) <= stopDistanceFromTarget)
+        //if (Vector2.Distance(transform.position, target.position) <= stopDistanceFromTarget)
+        if (Vector2.Distance(transform.position, targetPosition.Value) <= stopDistanceFromTarget)
             velocity = Vector2.zero;
         else
             velocity = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;

@@ -620,6 +620,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8585793230463656391, guid: d739c918af3d0e340a8f8e41f67b4529, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -689,6 +693,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8585793230463656391, guid: d739c918af3d0e340a8f8e41f67b4529, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -702,6 +710,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1590518458}
     m_Modifications:
+    - target: {fileID: 1155537564520084297, guid: b1f71209d51d5124b856db22285d0812, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     - target: {fileID: 1791100204367795012, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_Name
       value: MoldyCannonBaguette (2)
@@ -836,6 +848,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9027051956767650201, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -967,6 +983,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1590518458}
     m_Modifications:
+    - target: {fileID: 1155537564520084297, guid: b1f71209d51d5124b856db22285d0812, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     - target: {fileID: 1791100204367795012, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_Name
       value: MoldyCannonBaguette (3)
@@ -1357,6 +1377,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8585793230463656391, guid: d739c918af3d0e340a8f8e41f67b4529, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1897,6 +1921,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8585793230463656391, guid: d739c918af3d0e340a8f8e41f67b4529, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2106,6 +2134,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9027051956767650201, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2175,6 +2207,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8429461211746633601, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2506,6 +2542,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8429461211746633601, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2768,6 +2808,7 @@ GameObject:
   - component: {fileID: 700845583}
   - component: {fileID: 700845582}
   - component: {fileID: 700845586}
+  - component: {fileID: 700845587}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3079,6 +3120,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &700845587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700845579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7bfd20935d13eb4b80fceb13f47428b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _position: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
 --- !u!1001 &719492472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3412,6 +3466,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8585793230463656391, guid: d739c918af3d0e340a8f8e41f67b4529, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3626,6 +3684,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9027051956767650201, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3906,6 +3968,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8585793230463656391, guid: d739c918af3d0e340a8f8e41f67b4529, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3975,6 +4041,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9027051956767650201, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4335,6 +4405,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8585793230463656391, guid: d739c918af3d0e340a8f8e41f67b4529, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4888,6 +4962,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1590518458}
     m_Modifications:
+    - target: {fileID: 1155537564520084297, guid: b1f71209d51d5124b856db22285d0812, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     - target: {fileID: 1791100204367795012, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_Name
       value: MoldyCannonBaguette (1)
@@ -5404,6 +5482,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8585793230463656391, guid: d739c918af3d0e340a8f8e41f67b4529, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5473,6 +5555,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9027051956767650201, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6487,6 +6573,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9027051956767650201, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

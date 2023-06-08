@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f578a51fec0e8f647953565cc91342f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetPosition: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
   target: {fileID: 0}
   nextWaypointDistance: 3
   stopDistanceFromTarget: 2.5

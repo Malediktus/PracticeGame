@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 2243538096761039594}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &881522610551191386
 SpriteRenderer:
@@ -202,15 +202,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3abae350b2dd347a65bf5f18e985fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetPosition: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
   target: {fileID: 0}
   nextWaypointDistance: 3
   stopDistanceFromTarget: 13
   speed: 2
   minimumDistanceToAttack: 13
   attackSpeed: 4
-  attackDamage: 10
-  projectileVelocity: 10
-  projectile: {fileID: 6582437299804821108, guid: a7fa9857cd6940b4fa0afa43492171d4, type: 3}
+  projectilePrefab: {fileID: 3539918265975002204, guid: 605fdfd22b374ab4f819a1fe08998899, type: 3}
 --- !u!114 &8329908972196460867
 MonoBehaviour:
   m_ObjectHideFlags: 0

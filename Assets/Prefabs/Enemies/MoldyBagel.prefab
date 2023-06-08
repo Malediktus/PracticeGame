@@ -426,10 +426,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94402b40a6c3de4796c346c254a3a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetPosition: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
   target: {fileID: 0}
   nextWaypointDistance: 3
   stopDistanceFromTarget: 5
   speed: 4
+  minimumDistanceToAttack: 0
+  attackSpeed: 0
   minimumDistanceToHeal: 5
   healRate: 2
   healAmount: 5

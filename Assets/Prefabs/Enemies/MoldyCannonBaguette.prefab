@@ -189,7 +189,7 @@ Transform:
   - {fileID: 243969458912259645}
   - {fileID: 7661099288453350489}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3731346254421318042
 SpriteRenderer:
@@ -413,15 +413,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875b1970245beec4aa855c624545daaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetPosition: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
   target: {fileID: 0}
   nextWaypointDistance: 3
   stopDistanceFromTarget: 15
   speed: 1.5
   minimumDistanceToAttack: 15
   attackSpeed: 0.6
-  attackDamage: 10
-  projectileVelocity: 8
-  projectile: {fileID: 6582437299804821108, guid: a7fa9857cd6940b4fa0afa43492171d4, type: 3}
+  projectilePrefab: {fileID: 3539918265975002204, guid: a76e49afe84c441408b0ff3127b683c1, type: 3}
+  cannonPoints:
+  - {fileID: 4101404755282973991}
+  - {fileID: 7880166333362944926}
+  - {fileID: 9000088262606744348}
+  - {fileID: 8072296983476360989}
+  - {fileID: 8940824063157696572}
+  - {fileID: 4847620090419915909}
 --- !u!1 &2133698895983854993
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7661099288453350489}
   m_Layer: 6
-  m_Name: Cannon points
+  m_Name: CannonPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

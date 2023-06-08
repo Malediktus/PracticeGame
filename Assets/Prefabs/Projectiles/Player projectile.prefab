@@ -164,3 +164,5 @@ MonoBehaviour:
   Butter: {r: 1, g: 0.99122375, b: 0.5330188, a: 1}
   Jam: {r: 0.2924528, g: 0, b: 0.22889265, a: 1}
   Antidote: {r: 0.2688679, g: 1, b: 0.865, a: 1}
+  butterSplodge: {fileID: 6723536550468058361, guid: 2d5f03c2cce980643af2fc19827f055d, type: 3}
+  jamSplodge: {fileID: 5695885021452104900, guid: 746cf230ab3a2d14cad0e97e04583a09, type: 3}

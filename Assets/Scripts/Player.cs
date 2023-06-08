@@ -11,7 +11,7 @@ public class Player : MonoBehaviour, IPowerable
     [Header("Combat")]
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Transform sword;
-    [SerializeField] private Transform hitPoint;
+    [SerializeField] private Transform[] corners;
     [SerializeField] private float swordDamage = 10.0f;
     [SerializeField] private float swordCooldown = 0.5f;
     [SerializeField] private float swordWidth = 0.0f;
@@ -25,9 +25,13 @@ public class Player : MonoBehaviour, IPowerable
     [SerializeField] private GameObject projectile;
     [SerializeField] private float smallButterShotDamage = 10.0f;
     [SerializeField] private float smallButterConsumption = 1f;
+    [SerializeField] private float bigButterShotDamage = 30f;
+    [SerializeField] private float bigButterConsumption = 10f;
     [SerializeField] private float butterCapacity = 100f;
+
     [SerializeField] private float smallJamConsumption = 1f;
     [SerializeField] private float jamCapacity = 100f;
+    [SerializeField] private float bigJamConsumption = 10f;
     [SerializeField] private float projectileVelocity = 10.0f;
     [SerializeField] private float blasterCooldown = 0.5f;
 
@@ -109,8 +113,8 @@ public class Player : MonoBehaviour, IPowerable
         stabTimeStamp = Time.time + swordCooldown;
 
         DamageEnemiesInArea(
-            new Vector2(hitPoint.position.x, hitPoint.position.y + swordHeight),
-            new Vector2(hitPoint.position.x + swordWidth, hitPoint.position.y),
+            corners[0].position,
+            corners[1].position,
             swordDamage
         );
     }
@@ -123,8 +127,8 @@ public class Player : MonoBehaviour, IPowerable
             return;
 
         DamageEnemiesInArea(
-            new Vector2(swipeHitPoint.position.x, swipeHitPoint.position.y + swipeHeight),
-            new Vector2(swipeHitPoint.position.x + swipeWidth, swipeHitPoint.position.y),
+            corners[0].position,
+            corners[1].position,
             swipeDamage
         );
     }
@@ -209,6 +213,54 @@ public class Player : MonoBehaviour, IPowerable
             hasAntidote = false;
 
             antidoteSlot.SetActive(false);
+        }
+    }
+
+    public void OnBigShoot(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        if (spreadType == SpreadType.Butter)
+        {
+            if (0 >= currentButterAmount - bigButterConsumption)
+                return;
+
+            shootTimeStamp = Time.time + blasterCooldown;
+
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            Rigidbody2D projectileRigidBody = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+            projectileRigidBody.velocity = (mousePos - (Vector2)transform.position).normalized * projectileVelocity;
+            projectileRigidBody.transform.localScale = Vector2.one * 3;
+
+            PlayerProjectile currentProjectile = projectileRigidBody.GetComponent<PlayerProjectile>();
+
+            currentProjectile.SetDamage(bigButterShotDamage);
+            currentProjectile.SetSpreadType(spreadType);
+            currentButterAmount -= bigButterConsumption;
+
+            butterBar.value = currentButterAmount / butterCapacity;
+        }
+        else if (spreadType == SpreadType.Jam)
+        {
+            if (0 >= currentJamAmount - bigJamConsumption)
+                return;
+
+            shootTimeStamp = Time.time + blasterCooldown;
+
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            Rigidbody2D projectileRigidBody = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+            projectileRigidBody.velocity = (mousePos - (Vector2)transform.position).normalized * projectileVelocity;
+            projectileRigidBody.transform.localScale = Vector2.one * 3;
+
+            PlayerProjectile currentProjectile = projectileRigidBody.GetComponent<PlayerProjectile>();
+
+            currentProjectile.SetSpreadType(spreadType);
+            currentJamAmount -= bigJamConsumption;
+
+            jamBar.value = currentJamAmount / jamCapacity;
         }
     }
 

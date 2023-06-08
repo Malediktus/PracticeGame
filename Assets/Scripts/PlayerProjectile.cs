@@ -11,6 +11,9 @@ public class PlayerProjectile : MonoBehaviour
     [SerializeField] private Color Jam;
     [SerializeField] private Color Antidote;
 
+    [SerializeField] private GameObject butterSplodge;
+    [SerializeField] private GameObject jamSplodge;
+
     private SpriteRenderer sr;
 
     private void Start()
@@ -39,9 +42,13 @@ public class PlayerProjectile : MonoBehaviour
             {
                 case Player.SpreadType.Butter:
                     collision.gameObject.GetComponent<Health>().Damage(damage);
+                    if (transform.localScale.x > 1)
+                        Instantiate(butterSplodge, transform.position, Quaternion.identity);
                     break;
                 case Player.SpreadType.Jam:
                     collision.gameObject.GetComponent<Enemy>().Jam();
+                    if (transform.localScale.x > 1)
+                        Instantiate(jamSplodge, transform.position, Quaternion.identity);
                     break;
                 case Player.SpreadType.Antidote:
                     collision.gameObject.GetComponent<Enemy>().Cure();

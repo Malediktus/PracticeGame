@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Big shot",
+                    "type": "Button",
+                    "id": "e9fc1917-1147-4696-9757-205aecc85c9f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -166,7 +175,7 @@
                     "name": "",
                     "id": "a2053c35-30f4-45d5-9cf5-45b0feceb5c6",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Hold",
+                    "interactions": "Hold(duration=0.6)",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Swipe",
@@ -192,6 +201,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Switch spread",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2669da1c-8ca1-4a01-8000-ba8b91e0b688",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Hold(duration=1.5)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Big shot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

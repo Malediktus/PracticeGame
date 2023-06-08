@@ -41,7 +41,7 @@ public class MoldyBagel : Enemy
         {
             float distance = Vector2.Distance(enemies[i].transform.position, transform.position);
 
-            if (distance < minimumDistanceToHeal)
+            if (distance < minimumDistanceToHeal && enemies[i].layer != 10)
             {
                 enemies[i].GetComponent<Health>().Heal(healAmount);
             }

@@ -24,14 +24,14 @@ public class MoldyRangedToast : RangedEnemy
         }*/
 
         // If the enemy is close enough to the player and isn't already invoking, it attacks
-        if (DistanceToTarget < minimumDistanceToAttack && !IsInvoking("Shoot"))
+        /*if (DistanceToTarget < minimumDistanceToAttack && !IsInvoking("Shoot"))
         {
             InvokeRepeating("Shoot", 1, attackSpeed);
         }
         else if(DistanceToTarget > minimumDistanceToAttack)
         {
             CancelInvoke("Shoot");
-        }
+        }*/
     }
 
     protected override void Shoot()

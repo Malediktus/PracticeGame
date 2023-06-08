@@ -10,10 +10,15 @@ public class MoldyMeleeToast : Enemy
     [SerializeField] private float attackDamage;
 
     private Health playerHealth;
+    private AudioSource runSound;
 
     protected override void Start()
     {
         base.Start();
+    
+    playerHealth = GetTarget().GetComponent<Health>();
+    runSound = GetComponent<AudioSource>();
+
     }
 
     protected override void Update()
@@ -38,5 +43,6 @@ public class MoldyMeleeToast : Enemy
     {
         playerHealth = GetTarget().GetComponent<Health>();
         playerHealth.Damage(attackDamage);
+        runSound.Play();
     }
 }

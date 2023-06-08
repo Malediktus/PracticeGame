@@ -7,6 +7,8 @@ public class Player : MonoBehaviour, IPowerable
 {
     [Header("Movement")]
     [SerializeField] private float speed = 4.0f;
+    [SerializeField] private float dashSpeedMultiplier = 10f;
+    [SerializeField] private float dashRecharge = 1.5f;
 
     [Header("Combat")]
     [SerializeField] private LayerMask enemyLayer;
@@ -18,8 +20,6 @@ public class Player : MonoBehaviour, IPowerable
     [SerializeField] private float swordHeight = 0.0f;
     [SerializeField] private Transform swipeHitPoint;
     [SerializeField] private float swipeDamage = 5.0f;
-    [SerializeField] private float swipeWidth = 0.0f;
-    [SerializeField] private float swipeHeight = 0.0f;
 
     [Header("Ranged Combat")]
     [SerializeField] private GameObject projectile;
@@ -55,6 +55,8 @@ public class Player : MonoBehaviour, IPowerable
     private float currentButterAmount;
     private float currentJamAmount;
     private bool hasAntidote = true;
+    private bool canMove = true;
+    private bool canDash = true;
 
     private SpreadType spreadType;
 
@@ -85,21 +87,67 @@ public class Player : MonoBehaviour, IPowerable
     }
 
     public void OnMove(InputAction.CallbackContext context)
-    {
-        velocity = context.ReadValue<Vector2>();
+    {    
+        if (canMove)
+        {
+            velocity = context.ReadValue<Vector2>();
 
-        if (spriteRenderer.flipX == false && velocity.x > 0)
+            if (spriteRenderer.flipX == false && velocity.x > 0)
+            {
+                spriteRenderer.flipX = true;
+                // TODO: I dont realy like this code, maybe the sword shoult be directly in the player sprite and not seperate
+                sword.transform.position = new Vector3(sword.transform.position.x + transform.localScale.x * 2, sword.transform.position.y, 0.0f);
+            }
+
+            else if (spriteRenderer.flipX == true && velocity.x < 0)
+            {
+                spriteRenderer.flipX = false;
+                sword.transform.position = new Vector3(sword.transform.position.x - transform.localScale.x * 2, sword.transform.position.y, 0.0f);
+            }
+        }
+    }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        if (!canDash)
+            return;
+
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        Vector2 dir = (mousePos - (Vector2)transform.position).normalized;
+
+        if (dir.x > 0 && spriteRenderer.flipX == false)
         {
             spriteRenderer.flipX = true;
-            // TODO: I dont realy like this code, maybe the sword shoult be directly in the player sprite and not seperate
             sword.transform.position = new Vector3(sword.transform.position.x + transform.localScale.x * 2, sword.transform.position.y, 0.0f);
         }
-
-        else if (spriteRenderer.flipX == true && velocity.x < 0)
+        else if (spriteRenderer.flipX == true && dir.x < 0)
         {
             spriteRenderer.flipX = false;
             sword.transform.position = new Vector3(sword.transform.position.x - transform.localScale.x * 2, sword.transform.position.y, 0.0f);
         }
+
+        velocity = dir * speed;
+        canMove = false;
+
+        Invoke("StopDash", 0.1f);
+    }
+
+    private void StopDash()
+    {
+        velocity = Vector2.zero;
+        canMove = true;
+        canDash = false;
+
+        Invoke("RechargeDash", dashRecharge);
+    }
+
+    private void RechargeDash()
+    {
+        canDash = true;
     }
 
     public void OnStab(InputAction.CallbackContext context)

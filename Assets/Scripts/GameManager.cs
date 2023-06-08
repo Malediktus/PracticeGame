@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject pauseScreen;
+
     public void Reload()
     {
         Time.timeScale = 1.0f;
@@ -15,5 +17,17 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        pauseScreen.SetActive(true);
+    }
+
+    public void Continue()
+    {
+        Time.timeScale = 1;
+        pauseScreen.SetActive(false);
     }
 }

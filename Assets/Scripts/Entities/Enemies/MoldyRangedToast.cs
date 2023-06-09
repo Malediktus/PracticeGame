@@ -7,7 +7,7 @@ public class MoldyRangedToast : RangedEnemy
         base.Update();
     }
 
-    protected override void Shoot()
+    protected override void Attack()
     {
         CreateProjectile(transform.position, targetPosition.Value, out GameObject projectile);
     }

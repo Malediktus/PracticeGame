@@ -18,7 +18,7 @@ public class MoldyCannonBaguette : RangedEnemy
         base.Update();
     }
 
-    protected override void Shoot()
+    protected override void Attack()
     {
         CreateProjectile(cannonPoints[shootIndex].position, targetPosition.Value, out GameObject projectile);
 

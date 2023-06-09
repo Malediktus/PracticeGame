@@ -12,10 +12,6 @@ public class Enemy : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float speed = 5.0f;
 
-    [Header("Attack")]
-    [SerializeField] protected float minimumDistanceToAttack;
-    [SerializeField] protected float attackSpeed;
-
     private Path path;
     private int currentWaypoint = 0;
 

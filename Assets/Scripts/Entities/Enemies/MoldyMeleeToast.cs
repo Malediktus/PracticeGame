@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class MoldyMeleeToast : Enemy
+public class MoldyMeleeToast : OffenseEnemy
 {
-    [Header("Attack")]
     [SerializeField] private float attackDamage;
 
     //private Health playerHealth;
@@ -15,20 +14,7 @@ public class MoldyMeleeToast : Enemy
         //playerHealth = GetTarget().GetComponent<Health>();
     }
 
-    protected override void Update()
-    {
-        base.Update();
-
-        // If the enemy is close enough to the player and isn't already invoking, it attacks
-        if (DistanceToTarget < minimumDistanceToAttack && !IsInvoking("Attack")) {
-            InvokeRepeating("Attack", attackSpeed / 2, attackSpeed);
-        } else if (DistanceToTarget > minimumDistanceToAttack) {
-            CancelInvoke("Attack");
-        }
-    }
-
-    private void Attack()
-    {
+    protected override void Attack() {
         //playerHealth.Damage(attackDamage);
     }
 }

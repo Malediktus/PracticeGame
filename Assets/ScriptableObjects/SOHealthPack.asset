@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b87144b41b5c34439de2b8403e50745, type: 3}
   m_Name: SOHealthPack
   m_EditorClassIdentifier: 
-  amount: 20
+  amount: 60

@@ -165,8 +165,9 @@ GameObject:
   - component: {fileID: 7041420446921226499}
   - component: {fileID: 1882787523581087710}
   - component: {fileID: 1320638763686072458}
-  - component: {fileID: 2953002339800026826}
   - component: {fileID: 1155537564520084297}
+  - component: {fileID: 2953002339800026826}
+  - component: {fileID: 9216608681974583783}
   m_Layer: 6
   m_Name: MoldyCannonBaguette
   m_TagString: Enemy
@@ -189,7 +190,7 @@ Transform:
   - {fileID: 243969458912259645}
   - {fileID: 7661099288453350489}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3731346254421318042
 SpriteRenderer:
@@ -343,6 +344,33 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &1155537564520084297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791100204367795012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875b1970245beec4aa855c624545daaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
+  target: {fileID: 0}
+  nextWaypointDistance: 3
+  stopDistanceFromTarget: 15
+  speed: 1.5
+  minimumDistanceToAttack: 15
+  attackSpeed: 0.6
+  projectilePrefab: {fileID: 3539918265975002204, guid: a76e49afe84c441408b0ff3127b683c1, type: 3}
+  cannonPoints:
+  - {fileID: 4101404755282973991}
+  - {fileID: 7880166333362944926}
+  - {fileID: 9000088262606744348}
+  - {fileID: 8072296983476360989}
+  - {fileID: 8940824063157696572}
+  - {fileID: 4847620090419915909}
 --- !u!114 &2953002339800026826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +429,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1155537564520084297
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &9216608681974583783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,24 +441,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1791100204367795012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 875b1970245beec4aa855c624545daaa, type: 3}
+  m_Script: {fileID: 11500000, guid: d566caa4688747b46b864e0a6667dc08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPosition: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
-  target: {fileID: 0}
-  nextWaypointDistance: 3
-  stopDistanceFromTarget: 15
-  speed: 1.5
-  minimumDistanceToAttack: 15
-  attackSpeed: 0.6
-  projectilePrefab: {fileID: 3539918265975002204, guid: a76e49afe84c441408b0ff3127b683c1, type: 3}
-  cannonPoints:
-  - {fileID: 4101404755282973991}
-  - {fileID: 7880166333362944926}
-  - {fileID: 9000088262606744348}
-  - {fileID: 8072296983476360989}
-  - {fileID: 8940824063157696572}
-  - {fileID: 4847620090419915909}
+  health: {fileID: 2953002339800026826}
+  healthBar: {fileID: 7966361441251070468}
 --- !u!1 &2133698895983854993
 GameObject:
   m_ObjectHideFlags: 0

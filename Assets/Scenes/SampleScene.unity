@@ -2808,6 +2808,7 @@ GameObject:
   - component: {fileID: 700845583}
   - component: {fileID: 700845582}
   - component: {fileID: 700845586}
+  - component: {fileID: 700845588}
   - component: {fileID: 700845587}
   m_Layer: 0
   m_Name: Player
@@ -3090,36 +3091,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onDamageEvent:
+  onHealthChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 700845582}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnDamage
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onHealEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 700845582}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnHeal
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &700845587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3133,6 +3107,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _position: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
+--- !u!114 &700845588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700845579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d566caa4688747b46b864e0a6667dc08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 700845586}
+  healthBar: {fileID: 1514741437}
 --- !u!1001 &719492472
 PrefabInstance:
   m_ObjectHideFlags: 0

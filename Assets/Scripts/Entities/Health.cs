@@ -5,40 +5,28 @@ public class Health : MonoBehaviour
 {
     [Header("Health")]
     [SerializeField] protected float maxHealth = 50.0f;
-    [SerializeField] public UnityEvent onDeathEvent;
-    [SerializeField] public UnityEvent<float> onDamageEvent;
-    [SerializeField] public UnityEvent<float> onHealEvent;
-
+    
+    public UnityEvent onDeathEvent;
+    public UnityEvent onHealthChange;
     protected float health;
 
-    private void Awake()
-    {
-        health = maxHealth;
-    }
+    private void Awake() => health = maxHealth;
 
     public void Damage(float amount)
     {
         health -= amount;
-        onDamageEvent.Invoke(amount);
+        onHealthChange.Invoke();
         if (health <= 0)
             onDeathEvent.Invoke();
     }
 
     public void Heal(float amount)
     {
-        health += amount;
-        onHealEvent.Invoke(amount);
-        if (health > maxHealth)
-            health = maxHealth;
+        health = Mathf.Min(health + amount, maxHealth);
+        onHealthChange.Invoke();
     }
 
-    public float GetMaxHealth()
-    {
-        return maxHealth;
-    }
-
-    public float GetHealth()
-    {
-        return health;
-    }
+    public float GetMaxHealth() => maxHealth;
+    public float GetCurrentHealth() => health;
+    public float GetHealthPercent() => health / maxHealth;
 }

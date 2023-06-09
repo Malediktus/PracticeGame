@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using Pathfinding;
 
 public class Enemy : MonoBehaviour
@@ -24,8 +23,6 @@ public class Enemy : MonoBehaviour
 
     private Seeker seeker;
     protected Rigidbody2D rb;
-    private Slider healthBar;
-    private Health health;
 
     protected float DistanceToTarget => Vector2.Distance(rb.position, targetPosition.Value);
 
@@ -35,11 +32,6 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //target = GameObject.Find("Player").transform;
 
-        health = GetComponent<Health>();
-        healthBar = GetComponentInChildren<Slider>();
-        healthBar.maxValue = health.GetMaxHealth();
-        healthBar.value = health.GetHealth();
-
         InvokeRepeating("UpdatePath", 0.0f, 0.5f);
     }
 
@@ -48,7 +40,6 @@ public class Enemy : MonoBehaviour
         if (!seeker.IsDone())
             return;
 
-        //seeker.StartPath(transform.position, target.position, OnPathComplete);
         seeker.StartPath(transform.position, targetPosition.Value, OnPathComplete);
     }
 
@@ -95,15 +86,5 @@ public class Enemy : MonoBehaviour
     public void OnDeath()
     {
         Destroy(gameObject);
-    }
-
-    public void OnDamage(float amount)
-    {
-        healthBar.value = health.GetHealth();
-    }
-
-    public void OnHeal(float amount)
-    {
-        healthBar.value = health.GetHealth();
     }
 }

@@ -179,8 +179,9 @@ GameObject:
   - component: {fileID: 6177645908041574834}
   - component: {fileID: 3273140022939964303}
   - component: {fileID: 314188285186476630}
-  - component: {fileID: 1186051255084155155}
   - component: {fileID: 8429461211746633601}
+  - component: {fileID: 1186051255084155155}
+  - component: {fileID: 518834595538136866}
   m_Layer: 6
   m_Name: MoldyBagel
   m_TagString: Enemy
@@ -356,6 +357,28 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &8429461211746633601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719604121254029729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94402b40a6c3de4796c346c254a3a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
+  target: {fileID: 0}
+  nextWaypointDistance: 3
+  stopDistanceFromTarget: 5
+  speed: 4
+  minimumDistanceToAttack: 0
+  attackSpeed: 0
+  minimumDistanceToHeal: 5
+  healRate: 2
+  healAmount: 5
 --- !u!114 &1186051255084155155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,7 +437,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8429461211746633601
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &518834595538136866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -423,19 +449,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1719604121254029729}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94402b40a6c3de4796c346c254a3a7a, type: 3}
+  m_Script: {fileID: 11500000, guid: d566caa4688747b46b864e0a6667dc08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPosition: {fileID: 11400000, guid: a28d49c97101723488db02ea3f7c6a83, type: 2}
-  target: {fileID: 0}
-  nextWaypointDistance: 3
-  stopDistanceFromTarget: 5
-  speed: 4
-  minimumDistanceToAttack: 0
-  attackSpeed: 0
-  minimumDistanceToHeal: 5
-  healRate: 2
-  healAmount: 5
+  health: {fileID: 1186051255084155155}
+  healthBar: {fileID: 6980557268474267572}
 --- !u!1 &3149169863988173690
 GameObject:
   m_ObjectHideFlags: 0

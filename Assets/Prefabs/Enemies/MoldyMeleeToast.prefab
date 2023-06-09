@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 26283300868644025}
   - component: {fileID: 8585793230463656391}
   - component: {fileID: -5434686252815630205}
+  - component: {fileID: 5172546787924551927}
   m_Layer: 6
   m_Name: MoldyMeleeToast
   m_TagString: Enemy
@@ -280,6 +281,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5172546787924551927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762341880772842553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d566caa4688747b46b864e0a6667dc08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: -5434686252815630205}
+  healthBar: {fileID: 6318919117961802451}
 --- !u!1 &3609798473664872134
 GameObject:
   m_ObjectHideFlags: 0

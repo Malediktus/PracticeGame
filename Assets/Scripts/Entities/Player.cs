@@ -1,6 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour, IPowerable
@@ -25,8 +23,6 @@ public class Player : MonoBehaviour, IPowerable
     [SerializeField] private GameObject deathScreen;
 
     private Rigidbody2D rb;
-    private Slider healthBar;
-    private Health health;
     private SpriteRenderer spriteRenderer;
 
     private float stabTimeStamp;
@@ -35,11 +31,8 @@ public class Player : MonoBehaviour, IPowerable
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        health = GetComponent<Health>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        healthBar = GetComponentInChildren<Slider>();
-        healthBar.maxValue = health.GetMaxHealth();
-        healthBar.value = health.GetHealth();
+        
         stabTimeStamp = Time.time;
     }
 
@@ -109,15 +102,5 @@ public class Player : MonoBehaviour, IPowerable
     {
         Time.timeScale = 0;
         deathScreen.SetActive(true);
-    }
-
-    public void OnDamage(float amount)
-    {
-        healthBar.value = health.GetHealth();
-    }
-
-    public void OnHeal(float amount)
-    {
-        healthBar.value = health.GetHealth();
     }
 }

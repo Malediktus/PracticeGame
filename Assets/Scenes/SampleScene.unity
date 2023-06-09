@@ -720,7 +720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1791100204367795012, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2985483394886142365, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_RootOrder
@@ -768,11 +768,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5143559194698271398, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5143559194698271398, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -796,13 +796,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoldyRangedToast (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 1026649707203880865, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5889531009915880275, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
       propertyPath: m_RootOrder
@@ -953,7 +957,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 203313907}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -990,6 +994,10 @@ PrefabInstance:
     - target: {fileID: 1791100204367795012, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_Name
       value: MoldyCannonBaguette (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1791100204367795012, guid: b1f71209d51d5124b856db22285d0812, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2985483394886142365, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_RootOrder
@@ -1037,11 +1045,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5143559194698271398, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5143559194698271398, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2082,13 +2090,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoldyRangedToast (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 1026649707203880865, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5889531009915880275, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
       propertyPath: m_RootOrder
@@ -2155,13 +2167,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoldyBagel (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 4988901211005033727, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 1719604121254029729, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4988901211005033727, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988901211005033727, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5561855457017966072, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
       propertyPath: m_RootOrder
@@ -2294,13 +2310,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoldyBagel (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 4988901211005033727, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 1719604121254029729, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4988901211005033727, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988901211005033727, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5561855457017966072, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
       propertyPath: m_RootOrder
@@ -2490,13 +2510,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoldyBagel (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 4988901211005033727, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 1719604121254029729, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4988901211005033727, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988901211005033727, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5561855457017966072, guid: b270dfdfbd6ec684e8c1545971fd4865, type: 3}
       propertyPath: m_RootOrder
@@ -2695,7 +2719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 642067556}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SwipeHitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2728,7 +2752,7 @@ GameObject:
   - component: {fileID: 668021835}
   - component: {fileID: 668021837}
   - component: {fileID: 668021836}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2810,7 +2834,7 @@ GameObject:
   - component: {fileID: 700845586}
   - component: {fileID: 700845588}
   - component: {fileID: 700845587}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3620,13 +3644,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoldyRangedToast (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 1026649707203880865, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5889531009915880275, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
       propertyPath: m_RootOrder
@@ -3827,7 +3855,7 @@ GameObject:
   - component: {fileID: 936040112}
   - component: {fileID: 936040114}
   - component: {fileID: 936040113}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3977,13 +4005,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoldyRangedToast (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 1026649707203880865, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5889531009915880275, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
       propertyPath: m_RootOrder
@@ -4590,7 +4622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1236149471}
   - component: {fileID: 1236149472}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4960,7 +4992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1791100204367795012, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2985483394886142365, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_RootOrder
@@ -5008,11 +5040,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5143559194698271398, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5143559194698271398, guid: b1f71209d51d5124b856db22285d0812, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5177,7 +5209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1514741436}
   - component: {fileID: 1514741437}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5491,13 +5523,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoldyRangedToast (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 1026649707203880865, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5889531009915880275, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
       propertyPath: m_RootOrder
@@ -6509,13 +6545,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoldyRangedToast (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 1026649707203880865, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683703523817348493, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5889531009915880275, guid: 47d7e3934acaec941a38a24b6a0aaeec, type: 3}
       propertyPath: m_RootOrder
@@ -6833,7 +6873,7 @@ GameObject:
   - component: {fileID: 1984536007}
   - component: {fileID: 1984536006}
   - component: {fileID: 1984536005}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

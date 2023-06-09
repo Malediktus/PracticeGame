@@ -20,7 +20,8 @@ public class Enemy : MonoBehaviour
     private Seeker seeker;
     protected Rigidbody2D rb;
 
-    protected float DistanceToTarget => Vector2.Distance(rb.position, targetPosition.Value);
+    protected float DistanceToTarget => Vector2.Distance(transform.position, targetPosition.Value);
+    protected Vector3 TargetDirection => ( targetPosition.Value - transform.position ).normalized;
 
     protected virtual void Start()
     {
@@ -53,13 +54,12 @@ public class Enemy : MonoBehaviour
         if (path == null || currentWaypoint >= path.vectorPath.Count)
             return;
 
-        //if (Vector2.Distance(transform.position, target.position) <= stopDistanceFromTarget)
-        if (Vector2.Distance(transform.position, targetPosition.Value) <= stopDistanceFromTarget)
+        if (DistanceToTarget <= stopDistanceFromTarget)
             velocity = Vector2.zero;
         else
             velocity = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
 
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)
             currentWaypoint++;
     }

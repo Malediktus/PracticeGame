@@ -15,11 +15,6 @@ public class MoldyBagel : Enemy
         InvokeRepeating("Heal", 0, healRate);
     }
 
-    protected override void Update()
-    {
-        base.Update();
-    }
-
     private void Heal()
     {
         // TODO: Use a circle cast

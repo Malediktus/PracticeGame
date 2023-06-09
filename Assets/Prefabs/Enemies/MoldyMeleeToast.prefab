@@ -37,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 849789059645973609}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6360619668328099869
 SpriteRenderer:
@@ -210,6 +210,9 @@ MonoBehaviour:
   speed: 4
   minimumDistanceToAttack: 2.5
   attackSpeed: 0.5
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 128
   attackDamage: 5
 --- !u!114 &-5434686252815630205
 MonoBehaviour:

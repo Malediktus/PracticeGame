@@ -21,10 +21,6 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        /*if (collision.collider.name == "Player")
-        {
-            collision.gameObject.GetComponent<Health>().Damage(damage);
-        }*/
         GameObject go = collision.gameObject;
         if (go.TryGetComponent<Player>(out Player player)) {
             Health health = go.GetComponent<Health>();
@@ -33,9 +29,4 @@ public class EnemyProjectile : MonoBehaviour
 
         Destroy(gameObject);
     }
-
-    /*public void SetDamage(float enemyDamage)
-    {
-        damage = enemyDamage;
-    }*/
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class RangedEnemy : Enemy
 {
-    [SerializeField] private EnemyProjectile projectilePrefab; // I specify the type of the prefab to be sure to have the correct
+    [SerializeField] private EnemyProjectile projectilePrefab; // I specify the type of the prefab to be sure to have the correct one
 
     protected override void Update() {
         base.Update();

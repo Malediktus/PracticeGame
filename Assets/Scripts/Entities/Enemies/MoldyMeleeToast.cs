@@ -19,16 +19,6 @@ public class MoldyMeleeToast : Enemy
     {
         base.Update();
 
-        /*// Gets distance between itself and player
-        float distance = Vector2.Distance(rb.position, GetTarget().Value);
-
-        // If the enemy is close enough to the player and isn't already invoking, it attacks
-        if (distance < minimumDistanceToAttack && !IsInvoking("Attack")) {
-            InvokeRepeating("Attack", attackSpeed / 2, attackSpeed);
-        } else if (distance > minimumDistanceToAttack) {
-            CancelInvoke("Attack");
-        }*/
-
         // If the enemy is close enough to the player and isn't already invoking, it attacks
         if (DistanceToTarget < minimumDistanceToAttack && !IsInvoking("Attack")) {
             InvokeRepeating("Attack", attackSpeed / 2, attackSpeed);
